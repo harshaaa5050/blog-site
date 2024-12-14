@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import { Context } from '../App';
 import blog_img from '../assets/blog.png'
 
 const Blog = () => {
+
+  const { blogItems } = useContext(Context);
+
   return (
     <>
       <nav className='flex justify-between shadow-md p-2'>
@@ -9,8 +14,19 @@ const Blog = () => {
           <img className='w-10' src={blog_img} alt="" />
           <h1 className='text-3xl font-semibold'>My Blogs</h1>
         </div>
-        <button className='border-2 rounded-2xl font-medium bg-pink-300 w-20 hover:bg-pink-400'>Create</button>
+
+        <NavLink to="/createblog" className='flex items-center justify-center border-2 rounded-2xl font-medium bg-pink-300 w-20 hover:bg-pink-400'>Create</NavLink>
       </nav>
+
+      <div>
+        {blogItems.map((blog,index) => (
+          <div key={index} className='border rounded'>
+              <NavLink to = {`/blogs/${index}`} className="hover:underline font-medium text-xl p-3 mt-4">
+                  {blog.title}
+              </NavLink>
+          </div>
+        ))}
+      </div>
     </>
   )
 }
