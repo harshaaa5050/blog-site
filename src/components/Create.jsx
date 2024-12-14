@@ -13,7 +13,7 @@ const Create = () => {
 
 
     const handleSubmit = () => {
-        setBlogItems(prev => [...prev, { title, body }]);
+        setBlogItems(prev => [...prev, { id: prev.length, title: title, body: body }]);
         navigate('/blogs');
     };
 
@@ -34,7 +34,7 @@ const Create = () => {
 
                     <input type="text" placeholder='Enter your blog title' value={title} onChange={e => setTitle(e.target.value)} className='bg-transparent border-white outline-white rounded-2xl p-2 m-2 text-xl font-semibold' />
 
-                    <textarea placeholder='Enter your content' onChange={e => setBody(e.target.value)} name="content" id="content" rows={18} className='p-3 outline-none rounded-2xl m-2 bg-pink-100'></textarea>
+                    <textarea placeholder='Enter your content' onChange={e => setBody(e.target.value)} rows={18} className='p-3 outline-none rounded-2xl m-2 bg-pink-100'></textarea>
 
                 </div>
             </div>

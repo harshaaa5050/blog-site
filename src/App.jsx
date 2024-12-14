@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route,Navigate } from 'react-router-dom';
 import Blog from './components/Blog';
 import Create from './components/Create';
 import Content from './components/Content';
@@ -13,6 +13,7 @@ const App = () => {
     <Context.Provider value={{ blogItems, setBlogItems }}>
       <Router>
         <Routes>
+          <Route path="/" element={<Navigate to="/blogs"/>} />
           <Route path="/blogs" element={<Blog />} />
           <Route path="/createblog" element={<Create />} />
           <Route path="/blogs/:id" element={<Content />} />

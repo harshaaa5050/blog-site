@@ -19,9 +19,9 @@ const Blog = () => {
       </nav>
 
       <div>
-        {blogItems.map((blog,index) => (
-          <div key={index} className='border rounded'>
-              <NavLink to = {`/blogs/${index}`} className="hover:underline font-medium text-xl p-3 mt-4">
+        {blogItems.map((blog) => (
+          <div key={blog.id} className='border rounded'>
+              <NavLink to = {`/blogs/${blog.id}`} className="hover:underline font-medium text-xl p-3 mt-4">
                   {blog.title}
               </NavLink>
           </div>
